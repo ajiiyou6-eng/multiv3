@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>XINNDESAINER — Premium Logo</title>
+<style>
+/* ROOT */
+:root{
+  --bg:#020007;
+  --card:rgba(255,255,255,0.03);
+  --muted:#9fb0c9;
+  --accent1:#ff0058;
+  --accent2:#00f0ff;
+  --max-width:1100px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:#fff;overflow-x:hidden}
+/* NAV */
+.navbar{width:100%;padding:14px 24px;position:fixed;top:0;left:0;z-index:5;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.35);border-bottom:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(8px)}
+.nav-left{font-size:20px;font-weight:700;color:var(--accent2)}
+.nav-right a{margin-left:18px;color:#fff;text-decoration:none;font-size:15px;font-weight:600;transition:.2s}
+.nav-right a:hover{color:var(--accent2)}
+/* CANVAS */
+canvas#particles{position:fixed;inset:0;z-index:-10}
+/* HERO */
+.center-box{text-align:center;margin-top:120px;padding:20px}
+.glow{font-size:clamp(36px,6vw,70px);font-weight:800;letter-spacing:2px;animation:rgbGlow 4s infinite linear}
+@keyframes rgbGlow{0%{text-shadow:0 0 16px #ff00cc}25%{text-shadow:0 0 16px #00f0ff}50%{text-shadow:0 0 16px #7cff00}75%{text-shadow:0 0 16px #ffae00}100%{text-shadow:0 0 16px #ff00cc}}
+.subtitle{color:var(--muted);margin-top:8px;font-size:16px}
+.price{color:var(--muted);margin-top:10px}
+.btn{margin-top:18px;padding:12px 24px;border-radius:12px;background:linear-gradient(90deg,var(--accent2),var(--accent1));color:#02111a;font-weight:800;text-decoration:none}
+.marquee{margin:28px auto;padding:12px;max-width:var(--max-width);background:rgba(255,255,255,0.08);border-radius:12px;overflow:hidden}
+.marquee span{display:inline-block;white-space:nowrap;animation:run 12s linear infinite;font-weight:700}
+@keyframes run{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+/* PRODUK */
+.produk{max-width:var(--max-width);margin:34px auto;padding:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:var(--card);padding:18px;border-radius:12px;text-align:center;border:1px solid rgba(255,255,255,0.05);box-shadow:0 8px 30px rgba(0,0,0,0.5)}
+.muted{color:var(--muted);font-size:14px}
+.price-tag{color:var(--accent2);margin-top:8px;font-weight:800}
+.mini-btn{display:inline-block;margin-top:12px;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent2),var(--accent1));color:#02111a;text-decoration:none;font-weight:700}
+.preview-img{width:100%;border-radius:10px;margin-bottom:12px;box-shadow:0 0 20px rgba(0,0,0,0.5);transition:.25s}
+.preview-img:hover{transform:scale(1.04);box-shadow:0 0 24px rgba(0,255,255,0.4)}
+/* ORDER FORM */
+.order-box{max-width:var(--max-width);margin:40px auto;padding:20px;text-align:center}
+.order-form{margin-top:20px;background:rgba(255,255,255,0.05);padding:20px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,0.4)}
+.order-form label{display:block;text-align:left;margin-top:14px;margin-bottom:6px;font-size:14px;color:var(--muted)}
+.order-form input, .order-form select, .order-form textarea{width:100%;padding:12px;border-radius:10px;border:none;margin-bottom:10px;background:rgba(0,0,0,0.35);color:#fff}
+.btn-order{margin-top:12px;padding:12px 24px;border-radius:12px;width:100%;font-weight:800;color:#02111a;border:none;cursor:pointer}
+.footer{text-align:center;margin:40px auto;color:var(--muted);font-size:14px}
+
+/* MAINTENANCE OVERLAY */
+#overlayMaintenance{position:fixed;inset:0;background:rgba(2,2,10,0.95);color:white;display:flex;align-items:center;justify-content:center;z-index:9999;text-align:center;padding:20px;display:none}
+#overlayMaintenance .box{max-width:820px;background:rgba(255,255,255,0.02);padding:28px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-left">XINNDESAINER</div>
+  <div class="nav-right">
+    <a href="#home">Home</a>
+    <a href="#produk">Produk</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#order">Pemesanan</a>
+  </div>
+</nav>
+
+<canvas id="particles"></canvas>
+
+<!-- HERO -->
+<div id="home" class="center-box">
+  <h1 class="glow" id="heroTitle">XINNDESAINER</h1>
+  <p class="subtitle" id="heroSubtitle">Solusi desain logo profesional dengan sentuhan premium<br>Harga terjangkau, kualitas tinggi, proses cepat.</p>
+  <p class="price">Mulai dari <strong id="heroPriceRange">2K – 7K</strong></p>
+  <a class="btn" id="btnWAhero" href="https://wa.me/6287867162459" target="_blank">Buat Logo Sekarang</a>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee"><span id="heroMarquee">✨ GRAND OPENING — DESAIN LOGO PREMIUM MULAI 2K ✨</span></div>
+
+<!-- PRODUK -->
+<section id="produk" class="produk">
+  <h2>Paket Desain Logo</h2>
+  <div class="grid">
+    <article class="card">
+      <h3>Paket Express</h3>
+      <p class="muted">1 konsep • revisi 1x • pengerjaan cepat</p>
+      <p class="price-tag" id="hargaExpress">Rp 2.000</p>
+      <a class="mini-btn" id="waExpress" href="#">Pesan</a>
+    </article>
+    <article class="card">
+      <h3>Paket Basic</h3>
+      <p class="muted">2 konsep • revisi 2x • file PNG HD</p>
+      <p class="price-tag" id="hargaBasic">Rp 5.000</p>
+      <a class="mini-btn" id="waBasic" href="#">Pesan</a>
+    </article>
+    <article class="card">
+      <h3>Paket Premium</h3>
+      <p class="muted">5 konsep • revisi bebas • file lengkap AI/PNG</p>
+      <p class="price-tag" id="hargaPremium">Rp 7.000</p>
+      <a class="mini-btn" id="waPremium" href="#">Pesan</a>
+    </article>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="produk">
+  <h2>Contoh Desain Logo</h2>
+  <div class="grid" id="portfolioGrid">
+    <!-- portfolio items akan di-render dari Firebase -->
+  </div>
+</section>
+
+<!-- ORDER -->
+<section id="order" class="order-box">
+  <h2>Form Pemesanan</h2>
+  <div class="order-form">
+    <label>Nama Anda</label><input id="nama" type="text" placeholder="Masukkan nama">
+    <label>Nama Brand</label><input id="brand" type="text" placeholder="Nama brand">
+    <label>Warna Logo</label><input id="warna" type="text" placeholder="Contoh: RGB, biru neon">
+    <label>Gaya Logo</label>
+    <select id="style"><option>Minimalis</option><option>Mascot</option><option>Typography</option><option>Modern</option><option>RGB Glow</option><option>3D Effect</option></select>
+    <label>Pilih Paket</label>
+    <select id="paket"><option value="Paket Express (2.000)">Paket Express - 2K</option><option value="Paket Basic (5.000)">Paket Basic - 5K</option><option value="Paket Premium (7.000)">Paket Premium - 7K</option></select>
+    <label>Detail Custom</label><textarea id="detail" placeholder="Tulis request khusus..."></textarea>
+    <label>Catatan Tambahan</label><textarea id="catatan" placeholder="Catatan tambahan..."></textarea>
+    <button id="sendWA" class="btn-order" style="background:linear-gradient(90deg,var(--accent2),var(--accent1));">Kirim via WhatsApp</button>
+    <button id="sendEmail" class="btn-order" style="background:linear-gradient(90deg,#ffae00,#ff0055);margin-top:10px;">Kirim via Email</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer"><small>© <span id="year"></span> XINNDESAINER — Identitas visual elegan dan profesional.</small></footer>
+
+<!-- OVERLAY MAINTENANCE -->
+<div id="overlayMaintenance"><div class="box"><h2>🔧 Sedang Pemeliharaan</h2><p>Website sedang ditutup sementara oleh admin. Silakan coba lagi nanti atau hubungi kami via WhatsApp.</p><p id="overlayWA"></p></div></div>
+
+<!-- Firebase v8 compat -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+<script>
+/* ========== FIREBASE CONFIG ========== */
+const firebaseConfig = {
+  apiKey: "AIzaSyB4L9CUFN049AytK8b3xxT-qC7WPVcagOw",
+  authDomain: "xinndesainer-web.firebaseapp.com",
+  databaseURL: "https://xinndesainer-web-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "xinndesainer-web",
+  storageBucket: "xinndesainer-web.firebasestorage.app",
+  messagingSenderId: "149928716168",
+  appId: "1:149928716168:web:80e99e60fb8531f0e4bc3d",
+  measurementId: "G-1GWM4KV6T2"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+/* ========== HELPERS ========== */
+function $(id){ return document.getElementById(id); }
+function setHrefAll(selector, href){
+  const el = document.querySelectorAll(selector);
+  el.forEach(a=>a.href = href);
+}
+
+/* ========== REACTIVE UI FROM FIREBASE ========== */
+db.ref('web/statusToko').on('value', snap=>{
+  const v = snap.exists() ? String(snap.val()) : "1";
+  if(v === "0"){
+    $('overlayMaintenance').style.display = 'flex';
+  } else {
+    $('overlayMaintenance').style.display = 'none';
+  }
+});
+
+db.ref('web/nomorWA').on('value', snap=>{
+  const v = snap.exists() ? snap.val() : '6287867162459';
+  const waLink = `https://wa.me/${v}`;
+  // update hero button + paket buttons + overlay
+  $('btnWAhero').href = waLink;
+  $('waExpress').href = waLink;
+  $('waBasic').href = waLink;
+  $('waPremium').href = waLink;
+  $('overlayWA').innerHTML = `<a style="color:#fff" href="${waLink}" target="_blank">Chat via WhatsApp: ${v}</a>`;
+});
+
+db.ref('web/harga').on('value', snap=>{
+  const h = snap.val() || {};
+  $('hargaExpress').textContent = h.express ? `Rp ${h.express}` : 'Rp 2.000';
+  $('hargaBasic').textContent = h.basic ? `Rp ${h.basic}` : 'Rp 5.000';
+  $('hargaPremium').textContent = h.premium ? `Rp ${h.premium}` : 'Rp 7.000';
+});
+
+db.ref('web/texts').on('value', snap=>{
+  const t = snap.val() || {};
+  $('heroTitle').textContent = t.title || 'XINNDESAINER';
+  $('heroSubtitle').innerHTML = t.subtitle || 'Solusi desain logo profesional dengan sentuhan premium<br>Harga terjangkau, kualitas tinggi, proses cepat.';
+  $('heroMarquee').textContent = t.marquee || '✨ GRAND OPENING — DESAIN LOGO PREMIUM MULAI 2K ✨';
+  $('heroPriceRange').textContent = t.priceRange || '2K – 7K';
+});
+
+db.ref('web/portfolio').on('value', snap=>{
+  const data = snap.val() || {};
+  const grid = $('portfolioGrid');
+  grid.innerHTML = '';
+  const keys = Object.keys(data||{});
+  if(keys.length===0){
+    grid.innerHTML = '<div class="muted">Belum ada portfolio</div>'; return;
+  }
+  keys.forEach(k=>{
+    const url = data[k];
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.innerHTML = `<img class="preview-img" src="${url}" alt="portfolio"><h3>Contoh</h3><p class="muted">${url}</p>`;
+    grid.appendChild(card);
+  });
+});
+
+/* ========== ORDER HANDLING ========== */
+function collectOrder(){
+  return {
+    nama: $('nama').value.trim(),
+    brand: $('brand').value.trim(),
+    warna: $('warna').value.trim(),
+    style: $('style').value,
+    paket: $('paket').value,
+    detail: $('detail').value.trim(),
+    catatan: $('catatan').value.trim(),
+    waktu: Date.now()
+  };
+}
+
+$('sendWA').addEventListener('click', ()=> {
+  const order = collectOrder();
+  if(!order.nama || !order.brand) return alert('Isi minimal nama & brand');
+  // push ke firebase orders
+  db.ref('orders').push(order).then(()=>{
+    // ambil nomor WA sekarang untuk buka chat
+    db.ref('web/nomorWA').once('value').then(snap=>{
+      const wa = snap.exists() ? snap.val() : '6287867162459';
+      const pesan = `Halo Admin XINNDESAINER,%0ASaya ingin memesan desain logo.%0A%0ANama: ${encodeURIComponent(order.nama)}%0ABrand: ${encodeURIComponent(order.brand)}%0APaket: ${encodeURIComponent(order.paket)}%0AStyle: ${encodeURIComponent(order.style)}%0A%0ADetail:%0A${encodeURIComponent(order.detail)}%0A%0ACatatan:%0A${encodeURIComponent(order.catatan)}`;
+      window.open(`https://wa.me/${wa}?text=${pesan}`, '_blank');
+    });
+  }).catch(e=>{ console.error(e); alert('Gagal simpan order: '+e.message) });
+});
+
+$('sendEmail').addEventListener('click', ()=>{
+  const order = collectOrder();
+  if(!order.nama || !order.brand) return alert('Isi minimal nama & brand');
+  const subject = `Pemesanan Desain Logo - ${order.nama}`;
+  const body = `Halo Admin XINNDESAINER,%0A%0ASaya ingin memesan desain logo.%0A%0ANama: ${order.nama}%0ABrand: ${order.brand}%0AStyle: ${order.style}%0APaket: ${order.paket}%0A%0ADetail:%0A${order.detail}%0A%0ACatatan:%0A${order.catatan}%0A%0ATerima%20kasih.`;
+  // push to orders as record as well:
+  db.ref('orders').push(order).catch(()=>{/* non-blocking */});
+  window.location.href = `mailto:ajiyou31@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+});
+
+/* ========== PARTICLES background (simple) ========== */
+(function(){
+  const canvas = document.getElementById('particles'); if(!canvas) return;
+  const c = canvas.getContext('2d');
+  let w = canvas.width = innerWidth, h = canvas.height = innerHeight;
+  let particles = [];
+  for(let i=0;i<100;i++){ particles.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+0.8,vx:(Math.random()-.5)*0.6,vy:(Math.random()-.5)*0.6,color:`rgba(${Math.random()*255},${Math.random()*255},${Math.random()*255},0.08)`}); }
+  window.addEventListener('resize', ()=>{ w = canvas.width = innerWidth; h = canvas.height = innerHeight; });
+  function loop(){ c.clearRect(0,0,w,h); particles.forEach(p=>{ c.beginPath(); c.arc(p.x,p.y,p.r,0,Math.PI*2); c.fillStyle=p.color; c.fill(); p.x+=p.vx; p.y+=p.vy; if(p.x<0)p.x=w; if(p.x>w)p.x=0; if(p.y<0)p.y=h; if(p.y>h)p.y=0; }); requestAnimationFrame(loop); }
+  loop();
+})();
+
+/* show year */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
